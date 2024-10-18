@@ -26,14 +26,16 @@ function buttonCreateMarkup() {
 }
 function createBoxes(amount) {
   destroyBoxes();
+  const fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i++) {
     const newBox = document.createElement("div");
     newBox.style.width = `${boxSizes}px`;
     newBox.style.height = `${boxSizes}px`;
     newBox.style.backgroundColor = getRandomHexColor();
-    boxes.append(newBox);
+    fragment.appendChild(newBox);
     boxSizes += 10;
   }
+  boxes.appendChild(fragment);
 }
 
 function destroyBoxes() {
